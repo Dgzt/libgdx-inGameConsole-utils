@@ -70,7 +70,7 @@ public class ConsoleTable {
         final StringBuilder stringBuilder = Pools.obtain(StringBuilder.class);
 
         for (int i = 0; i < columnWidths.length; i++) {
-            final String line = String.format("%0" + columnWidths[i] + VERTICAL_SEP.length() + 1 + "d", 0).replace("0", HORIZONTAL_SEP);
+            final String line = new String(new char[columnWidths[i] + VERTICAL_SEP.length() + 1]).replace("\0", HORIZONTAL_SEP);
             stringBuilder.append(JOIN_SEP).append(line).append((i == columnWidths.length - 1 ? JOIN_SEP : ""));
         }
         console.log(stringBuilder.toString());
