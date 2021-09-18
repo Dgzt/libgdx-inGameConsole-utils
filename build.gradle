@@ -22,10 +22,3 @@ dependencies {
     api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.strongjoshua:libgdx-inGameConsole:$inGameConsoleVersion"
 }
-
-jar {
-    archiveBaseName.set(project.name)
-    manifest {
-        attributes 'Implementation-Title': projectName, 'Implementation-Version': archiveVersion
-    }
-}
