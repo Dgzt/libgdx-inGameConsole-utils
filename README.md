@@ -27,4 +27,36 @@ dependencies {
 
 ## Usage
 
-TODO
+Create GUIConsole object with this library's skin:
+
+```java
+GUIConsole console = new GUIConsole(new Skin(Gdx.files.classpath("console_utils_skin/uiskin.json")));
+```
+
+### Table with headers
+
+![](images/table_with_headers.png)
+
+```java
+ConsoleTable consoleTable = new ConsoleTable();
+
+consoleTable.setHeaders("Header 1", "Header 2", "Header 3");
+consoleTable.addRow("Row 11", "Row 12", "Row 13");
+consoleTable.addRow("Row 21", "Row 22", "Row 23");
+
+consoleTable.print(console);
+```
+
+### Table without headers
+
+![](images/table_without_headers.png)
+
+```java
+ConsoleTable consoleTable = new ConsoleTable();
+
+consoleTable.addRow("Row 11", "Row 12", "Row 13");
+consoleTable.addRow("Row 21", "Row 22", "Row 23");
+consoleTable.addRow("Row 31", "Extra length row", "Row 33");
+
+consoleTable.print(console);
+```
