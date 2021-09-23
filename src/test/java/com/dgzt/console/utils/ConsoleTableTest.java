@@ -32,9 +32,9 @@ public class ConsoleTableTest {
     @Before
     public void setup() {
         console = Mockito.mock(Console.class);
-        Mockito.doAnswer(new Answer() {
+        Mockito.doAnswer(new Answer<Object>() {
             @Override
-            public Object answer(final InvocationOnMock invocation) throws Throwable {
+            public Object answer(final InvocationOnMock invocation) {
                 final Object[] args = invocation.getArguments();
                 printedText += args[0] + "\n";
                 return null;
