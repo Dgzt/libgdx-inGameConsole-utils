@@ -2,3 +2,4 @@ jdk:
   - openjdk7
 install:
   - ./gradlew build publishToMavenLocal
+
