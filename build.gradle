@@ -1,26 +1,52 @@
-group = 'com.dgzt.console.utils'
-version = '1.0.0-SNAPSHOT'
-
 buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.17.0'
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'java-library'
-apply plugin: 'maven-publish'
+apply plugin: 'com.vanniktech.maven.publish'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+group = 'com.github.Dgzt'
+version = '1.0.0-SNAPSHOT'
+
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+// Disable JDK 8's doclint
+// http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            // The -quiet is because of some sort of weird JDK JavaCompiler bug:
+            // https://discuss.gradle.org/t/passing-arguments-to-compiler-and-javadoc/1661
+            options.addStringOption('Xdoclint:none,-missing', '-quiet')
+        }
+    }
+}
+
+if(JavaVersion.current().isJava9Compatible()) {
+    allprojects {
+        tasks.withType(JavaCompile) {
+            options.release.set(7) // You can change this from 7 to 8 if you don't support iOS.
+        }
+    }
+}
 
 repositories {
     mavenLocal()
     mavenCentral()
+    gradlePluginPortal()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -35,10 +61,9 @@ test {
     useJUnit()
 }
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
+jar {
+    archiveBaseName.set(projectName)
+    manifest {
+        attributes 'Implementation-Title': projectName, 'Implementation-Version': archiveVersion
     }
 }
