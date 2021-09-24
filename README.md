@@ -60,3 +60,21 @@ consoleTable.addRow("Row 31", "Extra length row", "Row 33");
 
 consoleTable.print(console);
 ```
+
+### Tree
+
+![](images/tree.png)
+
+```java
+ConsoleTree consoleTree = new ConsoleTree();
+
+TreeNode line1 = consoleTree.addRow("Line 1");
+consoleTree.addRow(line1, "Inner line 11");
+TreeNode line12 = consoleTree.addRow(line1, "Inner line 12");
+TreeNode line121 = consoleTree.addRow(line12, "Inner line 121");
+consoleTree.addRow(line121, "Inner line 1211");
+consoleTree.addRow(line1, "Inner line 13");
+consoleTree.addRow("Line 2");
+
+consoleTree.print(console);
+```
