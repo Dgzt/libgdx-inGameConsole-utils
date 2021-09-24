@@ -11,13 +11,13 @@ import org.mockito.stubbing.Answer;
 public class ConsoleTreeTest {
 
     private static final String EXPECTED_RESULT =
-            "├---Line 1\n" +
-            "|   ├---Inner line 11\n" +
-            "|   ├---Inner line 12\n" +
-            "|   |   └---Inner line 121\n" +
-            "|   |       └---Inner line 1211\n" +
-            "|   └---Inner line 13\n" +
-            "└---Line 2\n";
+            "+---Line 1\n" +
+            "|   +---Inner line 11\n" +
+            "|   +---Inner line 12\n" +
+            "|   |   +---Inner line 121\n" +
+            "|   |       +---Inner line 1211\n" +
+            "|   +---Inner line 13\n" +
+            "+---Line 2\n";
 
     private Console console;
 

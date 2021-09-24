@@ -35,9 +35,9 @@ public class TreeNode {
         for (final Iterator<TreeNode> it = children.iterator(); it.hasNext();) {
             final TreeNode child = it.next();
             if (it.hasNext()) {
-                child.print(console, childrenPrefix + "├---", childrenPrefix + "|   ");
+                child.print(console, childrenPrefix + "+---", childrenPrefix + "|   ");
             } else {
-                child.print(console, childrenPrefix + "└---", childrenPrefix + "    ");
+                child.print(console, childrenPrefix + "+---", childrenPrefix + "    ");
             }
         }
     }
