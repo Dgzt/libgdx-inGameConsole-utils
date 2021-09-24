@@ -1,4 +1,4 @@
-package com.dgzt.console.utils;
+package com.dgzt.console.utils.table;
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pools;

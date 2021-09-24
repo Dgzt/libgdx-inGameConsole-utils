@@ -1,4 +1,4 @@
-package com.dgzt.console.utils;
+package com.dgzt.console.utils.table;
 
 import com.strongjoshua.console.Console;
 import org.junit.Assert;
