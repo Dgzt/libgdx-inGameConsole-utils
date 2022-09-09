@@ -10,7 +10,7 @@ To use this library in your gradle project, add the version number and jitpack r
 allprojects {
     ext {
     	...
-        inGameConsoleUtils = 'master-SNAPSHOT'
+        inGameConsoleUtils = '1.0.0'
     }
     repositories {
 	...
